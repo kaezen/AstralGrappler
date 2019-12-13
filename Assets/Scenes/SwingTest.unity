@@ -958,6 +958,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1670260157}
     m_Modifications:
+    - target: {fileID: 1000546228694991445, guid: f353a89f7e9892a4f804e285206f76a2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hookable
+      objectReference: {fileID: 0}
     - target: {fileID: 3083270471314369264, guid: f353a89f7e9892a4f804e285206f76a2,
         type: 3}
       propertyPath: m_Name
@@ -1931,7 +1936,7 @@ GameObject:
   - component: {fileID: 1245165351}
   m_Layer: 9
   m_Name: Cube (14)
-  m_TagString: Untagged
+  m_TagString: Hookable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2445,7 +2450,7 @@ BoxCollider:
   m_GameObject: {fileID: 1469186746}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.05, y: 1.05, z: 1.05}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2865,6 +2870,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 31.903002, y: 180, z: 0}
+--- !u!1 &1675829292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000546228694991445, guid: f353a89f7e9892a4f804e285206f76a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 428647008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1675829297
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675829292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6
+  m_Height: 1.9999999
+  m_Direction: 1
+  m_Center: {x: -0.000001847744, y: 0.0000009536743, z: -0.0000019967556}
 --- !u!1 &1749675840
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,6 +3132,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7636098229227417462, guid: 9fe018a1a59f7854595a3a75a86feac4,
         type: 3}
+    - target: {fileID: 4792109501195072344, guid: 99cf745ec2405dd4a80d0bc93a4a6849,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99cf745ec2405dd4a80d0bc93a4a6849, type: 3}
 --- !u!1 &7595660462839661592
@@ -3149,7 +3179,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7595660462839661592}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 987c475e2a7e5a04b8ec2c97b5ed8697, type: 3}
   m_Name: 

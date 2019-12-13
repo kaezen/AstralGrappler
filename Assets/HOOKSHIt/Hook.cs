@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
-    private Vector3 scale;
+    private Vector3 scale = new Vector3(.5f,.5f,.5f);
     public GameObject hook;
     public GameObject hookHolder;
 
@@ -24,7 +24,8 @@ public class Hook : MonoBehaviour
 
     private void Update()
     {
-       
+        hook.gameObject.transform.localScale = hook.gameObject.transform.localScale;
+
         // fireing the hok
         if (Input.GetMouseButton(0) && fired == false)
         {
@@ -37,7 +38,7 @@ public class Hook : MonoBehaviour
             rope.SetVertexCount(2);
             rope.SetPosition(0, hookHolder.transform.position);
             rope.SetPosition(1, hook.transform.position);
-
+           // hook.transform.localScale = scale;
 
         }
 
@@ -61,6 +62,13 @@ public class Hook : MonoBehaviour
         if (hooked == true)
         {
             hook.transform.parent = hookedObj.transform;
+            
+
+            //var originalScale = scale;
+            // hook.transform.parent = hookedObj.transform;
+            //hook.transform.localScale = originalScale;
+            hook.transform.SetParent(hookedObj.transform, true);
+
             float distanceToHook = Vector3.Distance(transform.position, hook.transform.position);
             //if reeling in do this
             if (reelIn)
@@ -68,6 +76,7 @@ public class Hook : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, hook.transform.position, Time.deltaTime * playerTravelSpeed);
                 //TODO turn off gravity for the player so that the grapple works more smoothly
                 this.GetComponent<Rigidbody>().useGravity = false;
+               // this.GetComponent<MovModDoubleJump>().gravity = 0;
             }
             // if not reeling in do this
             if (!reelIn && distanceToHook > currentDistance)
@@ -86,21 +95,25 @@ public class Hook : MonoBehaviour
             
 
         } else {
-            //if the hook is not shot attach it to the player
-            if (!fired)
-            hook.transform.parent = hookHolder.transform;
 
+            if (!fired)
+            {
+                hook.transform.SetParent(hookHolder.transform, true);
+                hook.transform.localPosition = Vector3.zero;
+                hook.transform.localScale = new Vector3(.5f, .5f, .5f);
+            }
+
+                       
             //TODO turn on gravity
             this.GetComponent<Rigidbody>().useGravity = true;
-
-
-
-
         }
     }
     //resets hook into players gun
     void ReturnHook()
     {
+        // this.GetComponent<BaseMovementModule>().gravity = -35;
+        //hook.transform.localScale = scale;
+        //hook.transform.localScale = hook.transform.localScale;
         hook.transform.rotation = hookHolder.transform.rotation;
         hook.transform.position = hookHolder.transform.position;       
 
@@ -110,7 +123,7 @@ public class Hook : MonoBehaviour
 
         LineRenderer rope = hook.GetComponent<LineRenderer>();
         rope.SetVertexCount(0);
-       
+               
     }
 
 }
