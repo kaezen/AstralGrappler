@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hook : MonoBehaviour
 {
     private Vector3 scale = new Vector3(.5f,.5f,.5f);
+    private Vector3 scale2;
     public GameObject hook;
     public GameObject hookHolder;
 
@@ -38,7 +39,7 @@ public class Hook : MonoBehaviour
             rope.SetVertexCount(2);
             rope.SetPosition(0, hookHolder.transform.position);
             rope.SetPosition(1, hook.transform.position);
-           // hook.transform.localScale = scale;
+           
 
         }
 
@@ -62,11 +63,9 @@ public class Hook : MonoBehaviour
         if (hooked == true)
         {
             hook.transform.parent = hookedObj.transform;
-            
+          
 
-            //var originalScale = scale;
-            // hook.transform.parent = hookedObj.transform;
-            //hook.transform.localScale = originalScale;
+           
             hook.transform.SetParent(hookedObj.transform, true);
 
             float distanceToHook = Vector3.Distance(transform.position, hook.transform.position);
@@ -111,9 +110,7 @@ public class Hook : MonoBehaviour
     //resets hook into players gun
     void ReturnHook()
     {
-        // this.GetComponent<BaseMovementModule>().gravity = -35;
-        //hook.transform.localScale = scale;
-        //hook.transform.localScale = hook.transform.localScale;
+      
         hook.transform.rotation = hookHolder.transform.rotation;
         hook.transform.position = hookHolder.transform.position;       
 
